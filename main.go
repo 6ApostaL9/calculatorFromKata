@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"os"
 	"strconv"
 	"strings"
 )
@@ -10,10 +9,14 @@ import (
 const op = "+-*/"
 
 func main() {
-	var x, a, y string
-	fmt.Scan(&x, &a, &y)
-	fmt.Println(result(x, a, y))
-	os.Exit(0)
+	var input []string
+	
+	fmt.Scan(&input)
+	fmt.Println(input)
+	//var x, a, y string
+	//fmt.Scan(&x, &a, &y)
+	//fmt.Println(result(x, a, y))
+	//os.Exit(0)
 }
 
 // Результат выражения
