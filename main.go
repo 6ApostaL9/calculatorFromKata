@@ -22,16 +22,18 @@ func checkCorrectExpression(arrInputString []string) {
 		fmt.Println("Выдача паники, так как формат математической операции не удовлетворяет заданию — два операнда и один оператор (+, -, /, *).")
 		os.Exit(2)
 	}
+
 }
 
 func main() {
 	reader := bufio.NewReader(os.Stdin)
-	inputString, _ := reader.ReadString('\n')    //Ждет ввода данных в формате строки
-	inputString = strings.TrimSpace(inputString) //Очищает все пробелы
+	inputString, _ := reader.ReadString('\n')              //Ждет ввода данных в формате строки
+	inputString = strings.TrimSpace(inputString)           //Очищает пробелы в начале и в конце
+	inputString = strings.ReplaceAll(inputString, " ", "") //Очищает пробелы внутри строки
 
 	checkEmptyInput(inputString)
 
-	arrInputString := strings.Split(inputString, " ") //Преобразование строки в отдельные символы
+	arrInputString := strings.Split(inputString, "") //Преобразование строки в отдельные символы
 	checkCorrectExpression(arrInputString)
 
 	os.Exit(0)
