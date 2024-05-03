@@ -1,7 +1,9 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"os"
 	"strconv"
 	"strings"
 )
@@ -9,14 +11,17 @@ import (
 const op = "+-*/"
 
 func main() {
-	var input []string
+	reader := bufio.NewReader(os.Stdin)
+
+	for {
+		input, _ := reader.ReadString('\n')
+		input = strings.TrimSpace(input)
+	}
 	
-	fmt.Scan(&input)
-	fmt.Println(input)
-	//var x, a, y string
+	var x, a, y string
 	//fmt.Scan(&x, &a, &y)
-	//fmt.Println(result(x, a, y))
-	//os.Exit(0)
+	fmt.Println(result(x, a, y))
+	os.Exit(0)
 }
 
 // Результат выражения
