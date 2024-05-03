@@ -20,12 +20,7 @@ func main() {
 	}
 
 	arrInput := strings.Split(input, " ")
-	if len(arrInput) < 3 {
-		panic("Выдача паники, так как выражение не является математической операцией.")
-	}
-	if len(arrInput[0]) > 2 {
-		panic("Выдача паники, введите выражение через пробелы.")
-	}
+	checkInput(arrInput)
 
 	x := arrInput[0]
 	a := arrInput[1]
@@ -33,6 +28,18 @@ func main() {
 
 	fmt.Println(result(x, a, y))
 	os.Exit(0)
+}
+
+func checkInput(arrInput []string) {
+	if len(arrInput[0]) > 2 {
+		panic("Выдача паники, введите выражение через пробелы.")
+	}
+	if len(arrInput) < 3 {
+		panic("Выдача паники, так как выражение не является математической операцией.")
+	}
+	if len(arrInput) > 3 {
+		panic("Выдача паники, так как формат математической операции не соответствует заданию.")
+	}
 }
 
 // Результат выражения
