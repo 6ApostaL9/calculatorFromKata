@@ -13,11 +13,24 @@ const op = "+-*/"
 func main() {
 	reader := bufio.NewReader(os.Stdin)
 
-	input, _ := reader.ReadString('\n')
-	input = strings.TrimSpace(input)
-	
-	var x, a, y string
-	//fmt.Scan(&x, &a, &y)
+	input, _ := reader.ReadString('\n') //Ввод строки
+	input = strings.TrimSpace(input)    //Удаляет пробелы в начале и в конце
+	if len(input) == 0 {
+		panic("Выдача паники, так как выражение не введено.")
+	}
+
+	arrInput := strings.Split(input, " ")
+	if len(arrInput) < 3 {
+		panic("Выдача паники, так как выражение не является математической операцией.")
+	}
+	if len(arrInput[0]) > 2 {
+		panic("Выдача паники, введите выражение через пробелы.")
+	}
+
+	x := arrInput[0]
+	a := arrInput[1]
+	y := arrInput[2]
+
 	fmt.Println(result(x, a, y))
 	os.Exit(0)
 }
