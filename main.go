@@ -13,10 +13,8 @@ const op = "+-*/"
 func main() {
 	reader := bufio.NewReader(os.Stdin)
 
-	for {
-		input, _ := reader.ReadString('\n')
-		input = strings.TrimSpace(input)
-	}
+	input, _ := reader.ReadString('\n')
+	input = strings.TrimSpace(input)
 	
 	var x, a, y string
 	//fmt.Scan(&x, &a, &y)
